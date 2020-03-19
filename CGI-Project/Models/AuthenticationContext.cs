@@ -14,6 +14,6 @@ namespace CGI_Project.Models
 
         }
 
-        public DbSet<ApplicationUser> User { get; set; }
+        public DbSet<ApplicationUser> ApplicationUsers { get; set; }
     }
 }
