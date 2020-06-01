@@ -83,16 +83,17 @@ namespace CGI_Project
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseCors(builder => builder.WithOrigins(Configuration["ApplicationSettings:Client_URL"].ToString())
-                .AllowAnyHeader()
-                .AllowAnyMethod());
-
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
             app.UseRouting();
+
             app.UseAuthentication();
             app.UseAuthorization();
+
+            app.UseCors(builder => builder.WithOrigins(Configuration["ApplicationSettings:Client_URL"].ToString())
+                .AllowAnyHeader()
+                .AllowAnyMethod());
 
             app.UseEndpoints(endpoints =>
             {
